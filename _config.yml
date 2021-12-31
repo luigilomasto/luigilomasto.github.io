@@ -1,7 +1,7 @@
-title: devlopr
-subtitle: A Portfolio Jekyll Theme Built for Developers
+title: Luigi Lomasto
+subtitle: Personal Web Page del Prof. Luigi Lomasto
 description: >- # this means to ignore newlines until "baseurl:"
-  devlopr-jekyll is a beautiful Jekyll Theme Built For Developers, which is optimized for speed and readability.
+"Those who can imagine anything, can create the impossible." A.Turing
 
 url: "" # the base hostname & protocol for your site, e.g. https://example.github.io
 baseurl: "" # the subpath of your site, e.g. /blog
@@ -25,28 +25,23 @@ urls:
 # Edit Author details (For multi authors check _data/authors.yml)
 
 author_logo: profile.png
-author: John Doe
-author_bio: Hi, my name is John Doe. I built this site using devlopr-jekyll :D
-author_email: "mail@sujaykundu.com"
-author_location: India
-author_website_url: "https://sujaykundu.com"
-typewrite-text: devlopr is a jekyll framework built for developers. You can edit this in _config.yml file
+author: Prof. Luigi Lomasto
+author_bio: Hi, my name is Luigi Lomasto. I'm a Data Scientist and a Computer Science Professor. 
+author_email: "luigilomasto@gmail.com"
+author_location: Italia
+author_website_url: ""
+typewrite-text: "Those who can imagine anything, can create the impossible." A.Turing
 hero_cover_img: sample_cover.jpg # replace this for changing homepage cover (eg. try cover.jpeg). Image should be in /assets/img
 
 # Experiences
 author_work_experiences:
-            - company_name: Google
-              company_logo: google.png
-              company_url: https://google.com
-              designation: Software Engineer
-              description: Worked on various Google Products
+            - company_name: Malwarebytes
+              company_logo: malwarebytes.jpg
+              company_url: https://malwarebytes.com
+              designation: Data Engineer
+              description: Worked on EDR Malwarebytes project.
               visibility: true
-            - company_name: Microsoft
-              company_logo: microsoft.png
-              company_url: https://microsoft.com
-              designation: Azure Developer
-              description: Worked on various Azure Cloud Products
-              visibility: true
+
 
 # Education
 author_education_details:
