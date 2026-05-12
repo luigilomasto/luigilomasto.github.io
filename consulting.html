@@ -1,0 +1,687 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Luigi Lomasto · Professional Services</title>
+  <meta name="description" content="AI Act Consultant and Senior Data Scientist. Supporting companies in EU AI Act compliance, NLP engineering, and responsible AI deployment." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --cardinal: #0f2340;
+      --cardinal-dark: #081628;
+      --cardinal-light: #eef2f7;
+      --ink: #1a1a1a;
+      --muted: #5b6670;
+      --line: #e0e4e8;
+      --bg: #f7f6f4;
+      --paper: #ffffff;
+      --max: 1100px;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'DM Sans', sans-serif; color: var(--ink); background: var(--bg); line-height: 1.65; }
+    img { max-width: 100%; display: block; }
+    a { color: var(--cardinal); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .container { width: min(92%, var(--max)); margin: 0 auto; }
+
+    /* ── TOP BAR ── */
+    .topbar {
+      background: var(--cardinal);
+      color: white;
+      padding: 0.75rem 0;
+      border-bottom: 3px solid #c4a962;
+    }
+    .topbar .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+    .topbar-left { display: flex; flex-direction: column; gap: 0.1rem; }
+    .site-title { font-family: 'EB Garamond', serif; font-size: 1.1rem; letter-spacing: 0.03em; }
+    .site-subtitle { font-size: 0.82rem; opacity: 0.85; font-weight: 300; }
+    .topbar-nav { display: flex; gap: 1rem; align-items: center; }
+    .topbar-nav a {
+      color: rgba(255,255,255,0.8);
+      font-size: 0.85rem;
+      font-weight: 500;
+      text-decoration: none;
+    }
+    .topbar-nav a:hover { color: white; text-decoration: none; }
+    .topbar-nav .sep { color: rgba(255,255,255,0.3); }
+
+    /* ── NAV ── */
+    nav {
+      background: var(--paper);
+      border-bottom: 1px solid var(--line);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    nav .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.85rem 0;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+    .brand { font-family: 'EB Garamond', serif; font-size: 1.3rem; font-weight: 600; color: var(--cardinal-dark); }
+    .nav-links { list-style: none; display: flex; gap: 1.25rem; flex-wrap: wrap; font-size: 0.9rem; }
+    .nav-links a { color: var(--ink); font-weight: 500; text-decoration: none; }
+    .nav-links a:hover { color: var(--cardinal); }
+
+    /* ── HERO ── */
+    .hero {
+      background: var(--cardinal);
+      color: white;
+      padding: 4.5rem 0 3.5rem;
+    }
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 3rem;
+      align-items: center;
+    }
+    .hero-eyebrow {
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.65);
+      margin-bottom: 1rem;
+    }
+    .hero h1 {
+      font-family: 'EB Garamond', serif;
+      font-size: clamp(2.2rem, 4.5vw, 3.8rem);
+      line-height: 1.06;
+      margin-bottom: 1.2rem;
+      font-weight: 600;
+    }
+    .hero-tagline {
+      font-size: 1.1rem;
+      color: rgba(255,255,255,0.85);
+      margin-bottom: 1.5rem;
+      font-weight: 300;
+      max-width: 52ch;
+    }
+    .hero-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 2rem;
+    }
+    .badge {
+      font-size: 0.78rem;
+      padding: 0.3rem 0.85rem;
+      background: rgba(255,255,255,0.15);
+      border: 1px solid rgba(255,255,255,0.28);
+      border-radius: 2px;
+      font-weight: 500;
+      color: rgba(255,255,255,0.92);
+    }
+    .cta-row { display: flex; gap: 1rem; flex-wrap: wrap; }
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: white;
+      color: var(--cardinal);
+      padding: 0.85rem 1.6rem;
+      border-radius: 2px;
+      font-weight: 600;
+      font-size: 0.9rem;
+      transition: background 0.2s;
+    }
+    .btn-primary:hover { background: #f0f0f0; text-decoration: none; }
+    .btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: transparent;
+      color: white;
+      border: 1px solid rgba(255,255,255,0.45);
+      padding: 0.85rem 1.6rem;
+      border-radius: 2px;
+      font-weight: 500;
+      font-size: 0.9rem;
+      transition: background 0.2s;
+    }
+    .btn-secondary:hover { background: rgba(255,255,255,0.1); text-decoration: none; }
+
+    .hero-card {
+      background: rgba(255,255,255,0.1);
+      border: 1px solid rgba(255,255,255,0.2);
+      padding: 1.5rem;
+      border-radius: 4px;
+    }
+    .hero-card-label {
+      font-size: 0.72rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.6);
+      margin-bottom: 1rem;
+      font-weight: 600;
+    }
+    .hero-card-stat {
+      display: flex;
+      align-items: baseline;
+      gap: 0.5rem;
+      margin-bottom: 0.75rem;
+    }
+    .stat-num {
+      font-family: 'EB Garamond', serif;
+      font-size: 2.2rem;
+      font-weight: 600;
+      line-height: 1;
+    }
+    .stat-label { font-size: 0.85rem; color: rgba(255,255,255,0.75); font-weight: 300; }
+    .hero-card hr { border: none; border-top: 1px solid rgba(255,255,255,0.15); margin: 1rem 0; }
+    .hero-card-item {
+      font-size: 0.85rem;
+      color: rgba(255,255,255,0.82);
+      margin-bottom: 0.5rem;
+      display: flex;
+      align-items: flex-start;
+      gap: 0.5rem;
+    }
+    .hero-card-item::before { content: '·'; color: rgba(255,255,255,0.4); flex-shrink: 0; margin-top: 0.05rem; }
+
+    /* ── MAIN ── */
+    .main { padding: 3.5rem 0 5rem; }
+
+    /* section headers */
+    .section-head {
+      margin-bottom: 2rem;
+      padding-bottom: 0.75rem;
+      border-bottom: 1px solid var(--line);
+    }
+    .section-eyebrow {
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--cardinal);
+      margin-bottom: 0.5rem;
+    }
+    .section-head h2 {
+      font-family: 'EB Garamond', serif;
+      font-size: 2rem;
+      font-weight: 600;
+      color: var(--cardinal-dark);
+    }
+
+    /* ── SERVICES ── */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.25rem;
+      margin-bottom: 3.5rem;
+    }
+    .service-card {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      padding: 1.75rem 1.5rem;
+      position: relative;
+      transition: box-shadow 0.2s;
+    }
+    .service-card:hover { box-shadow: 0 4px 20px rgba(0,0,0,0.08); }
+    .service-card.featured {
+      border-color: var(--cardinal);
+      border-width: 2px;
+    }
+    .featured-tag {
+      position: absolute;
+      top: -1px;
+      left: 1.5rem;
+      background: var(--cardinal);
+      color: white;
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 0.25rem 0.75rem;
+    }
+    .service-icon {
+      font-size: 1.4rem;
+      margin-bottom: 1rem;
+    }
+    .service-card h3 {
+      font-family: 'EB Garamond', serif;
+      font-size: 1.4rem;
+      color: var(--cardinal-dark);
+      margin-bottom: 0.5rem;
+    }
+    .service-card .price {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--ink);
+      margin-bottom: 0.25rem;
+    }
+    .service-card .duration {
+      font-size: 0.8rem;
+      color: var(--muted);
+      margin-bottom: 1rem;
+      font-weight: 300;
+    }
+    .service-card p {
+      font-size: 0.92rem;
+      color: var(--muted);
+      margin-bottom: 1.25rem;
+      line-height: 1.65;
+    }
+    .service-list {
+      list-style: none;
+      font-size: 0.87rem;
+      color: var(--muted);
+    }
+    .service-list li {
+      padding: 0.3rem 0;
+      border-top: 1px solid var(--line);
+      display: flex;
+      align-items: flex-start;
+      gap: 0.5rem;
+    }
+    .service-list li::before {
+      content: '✓';
+      color: var(--cardinal);
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+
+    /* ── EXPERTISE ── */
+    .expertise-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2.5rem;
+      margin-bottom: 3.5rem;
+      align-items: start;
+    }
+    .expertise-block h3 {
+      font-family: 'EB Garamond', serif;
+      font-size: 1.3rem;
+      color: var(--cardinal-dark);
+      margin-bottom: 1rem;
+    }
+    .skill-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.6rem 0;
+      border-bottom: 1px solid var(--line);
+      font-size: 0.88rem;
+    }
+    .skill-row:last-child { border-bottom: none; }
+    .skill-name { font-weight: 500; }
+    .skill-tag {
+      font-size: 0.72rem;
+      padding: 0.2rem 0.6rem;
+      background: var(--cardinal-light);
+      color: var(--cardinal);
+      border-radius: 2px;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+    }
+
+    .credentials-list {
+      list-style: none;
+    }
+    .credentials-list li {
+      padding: 0.75rem 0;
+      border-bottom: 1px solid var(--line);
+      font-size: 0.9rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.2rem;
+    }
+    .credentials-list li:last-child { border-bottom: none; }
+    .cred-title { font-weight: 600; color: var(--ink); }
+    .cred-sub { color: var(--muted); font-size: 0.82rem; font-weight: 300; }
+
+    /* ── WHO I WORK WITH ── */
+    .clients-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem;
+      margin-bottom: 3.5rem;
+    }
+    .client-card {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      padding: 1.25rem;
+    }
+    .client-card h4 {
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--ink);
+      margin-bottom: 0.4rem;
+    }
+    .client-card p { font-size: 0.82rem; color: var(--muted); line-height: 1.55; }
+
+    /* ── CONTACT ── */
+    .contact-section {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      padding: 2.5rem;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      align-items: start;
+    }
+    .contact-section h2 {
+      font-family: 'EB Garamond', serif;
+      font-size: 1.9rem;
+      color: var(--cardinal-dark);
+      margin-bottom: 0.75rem;
+    }
+    .contact-section p { font-size: 0.95rem; color: var(--muted); margin-bottom: 1.25rem; line-height: 1.7; }
+    .contact-detail {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 0.6rem 0;
+      border-bottom: 1px solid var(--line);
+      font-size: 0.9rem;
+    }
+    .contact-detail:last-child { border-bottom: none; }
+    .contact-label { color: var(--muted); font-size: 0.82rem; font-weight: 500; min-width: 70px; }
+    .contact-value { color: var(--ink); }
+    .contact-value a { color: var(--cardinal); }
+
+    /* ── FOOTER ── */
+    footer {
+      background: #1a1a1a;
+      color: #888;
+      padding: 1.5rem 0;
+      border-top: 3px solid var(--cardinal);
+    }
+    footer .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      font-size: 0.82rem;
+    }
+    footer a { color: #aaa; }
+    footer a:hover { color: white; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+      .hero-grid, .expertise-grid, .contact-section { grid-template-columns: 1fr; }
+      .services-grid { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 640px) {
+      .hero { padding: 3rem 0 2.5rem; }
+      .contact-section { padding: 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="topbar">
+    <div class="container">
+      <div class="topbar-left">
+        <div class="site-title"><a href="index.html" style="color:white;">Luigi Lomasto</a></div>
+        <div class="site-subtitle">AI Act Consultant &middot; Senior Data Scientist &middot; PhD Researcher</div>
+      </div>
+      <div class="topbar-nav">
+        <a href="research.html">Academic Profile</a>
+        <span class="sep">|</span>
+        <a href="index.html" style="color:white;">Home</a>
+      </div>
+    </div>
+  </header>
+
+  <nav>
+    <div class="container">
+      <div class="brand">Professional Services</div>
+      <ul class="nav-links">
+        <li><a href="#services">Services</a></li>
+        <li><a href="#expertise">Expertise</a></li>
+        <li><a href="#clients">Who I Work With</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="container hero-grid">
+      <div>
+        <div class="hero-eyebrow">AI Act &amp; AI Governance Consulting</div>
+        <h1>Helping organizations navigate the EU AI Act.</h1>
+        <p class="hero-tagline">
+          I combine hands-on technical expertise with deep regulatory knowledge to help companies classify, assess, and govern AI systems in compliance with EU requirements.
+        </p>
+        <div class="hero-badges">
+          <span class="badge">EU AI Act</span>
+          <span class="badge">AI Risk Assessment</span>
+          <span class="badge">NLP Engineering</span>
+          <span class="badge">Data Science</span>
+          <span class="badge">GDPR &amp; Privacy by Design</span>
+          <span class="badge">AI Training &amp; Education</span>
+        </div>
+        <div class="cta-row">
+          <a href="mailto:lomastoluigi@gmail.com" class="btn-primary">Get in touch</a>
+          <a href="research.html" class="btn-secondary">Academic Profile</a>
+        </div>
+      </div>
+
+      <div class="hero-card">
+        <div class="hero-card-label">At a glance</div>
+        <div class="hero-card-stat">
+          <span class="stat-num">7+</span>
+          <span class="stat-label">years in AI &amp; data engineering</span>
+        </div>
+        <div class="hero-card-stat">
+          <span class="stat-num">13</span>
+          <span class="stat-label">peer-reviewed publications</span>
+        </div>
+        <div class="hero-card-stat">
+          <span class="stat-num">PhD</span>
+          <span class="stat-label">Computer Science, UniSa</span>
+        </div>
+        <hr>
+        <div class="hero-card-item">AI Act compliance for Eustema S.p.A. (2023–2025)</div>
+        <div class="hero-card-item">NLP Coach at ProfessionAI</div>
+        <div class="hero-card-item">Teaching at Luiss Guido Carli &amp; UniSa</div>
+        <div class="hero-card-item">Visiting Researcher, SIAS Group, Amsterdam</div>
+      </div>
+    </div>
+  </section>
+
+  <main class="main">
+    <div class="container">
+
+      <!-- SERVICES -->
+      <section id="services">
+        <div class="section-head">
+          <div class="section-eyebrow">What I offer</div>
+          <h2>Services</h2>
+        </div>
+
+        <div class="services-grid">
+
+          <div class="service-card">
+            <div class="service-icon">🔍</div>
+            <h3>Quick Audit</h3>
+            <div class="price">€500 – €900</div>
+            <div class="duration">2–4 hours · Single engagement</div>
+            <p>An initial assessment of your AI system: risk classification, identification of applicable obligations under the AI Act, and a concise executive report with actionable recommendations.</p>
+            <ul class="service-list">
+              <li>AI system classification (prohibited / high-risk / limited)</li>
+              <li>Applicable obligations overview</li>
+              <li>Executive report with priority actions</li>
+              <li>Q&amp;A session (1h)</li>
+            </ul>
+          </div>
+
+          <div class="service-card featured">
+            <div class="featured-tag">Most requested</div>
+            <div class="service-icon">📋</div>
+            <h3>Compliance Package</h3>
+            <div class="price">€2.000 – €4.000</div>
+            <div class="duration">2–3 weeks · Full engagement</div>
+            <p>End-to-end compliance support: from risk assessment and conformity mapping to technical documentation and a remediation roadmap aligned with EU AI Act requirements.</p>
+            <ul class="service-list">
+              <li>Full risk assessment &amp; classification</li>
+              <li>Conformity assessment support</li>
+              <li>Technical documentation (Art. 11)</li>
+              <li>GDPR alignment for AI systems</li>
+              <li>Remediation roadmap</li>
+              <li>Technical–legal bridging support</li>
+            </ul>
+          </div>
+
+          <div class="service-card">
+            <div class="service-icon">🤝</div>
+            <h3>Advisory Retainer</h3>
+            <div class="price">€600 – €1.200 / month</div>
+            <div class="duration">4–8 hours/month · Ongoing</div>
+            <p>Continuous advisory support: regulatory updates, review of new AI systems, Q&amp;A for your legal and engineering teams, and ongoing governance guidance.</p>
+            <ul class="service-list">
+              <li>Monthly regulatory update briefing</li>
+              <li>New system assessments on demand</li>
+              <li>Team Q&amp;A &amp; advisory sessions</li>
+              <li>Documentation reviews</li>
+            </ul>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- EXPERTISE -->
+      <section id="expertise">
+        <div class="section-head">
+          <div class="section-eyebrow">Background</div>
+          <h2>Expertise</h2>
+        </div>
+
+        <div class="expertise-grid">
+          <div class="expertise-block">
+            <h3>Technical areas</h3>
+            <div class="skill-row"><span class="skill-name">EU AI Act &amp; AI Governance</span><span class="skill-tag">Core</span></div>
+            <div class="skill-row"><span class="skill-name">Natural Language Processing</span><span class="skill-tag">Core</span></div>
+            <div class="skill-row"><span class="skill-name">Machine Learning &amp; Deep Learning</span><span class="skill-tag">Core</span></div>
+            <div class="skill-row"><span class="skill-name">Big Data (Apache Spark, ElasticSearch)</span><span class="skill-tag">Advanced</span></div>
+            <div class="skill-row"><span class="skill-name">GDPR &amp; Privacy by Design</span><span class="skill-tag">Advanced</span></div>
+            <div class="skill-row"><span class="skill-name">Cloud (AWS: EMR, Redshift, S3)</span><span class="skill-tag">Advanced</span></div>
+            <div class="skill-row"><span class="skill-name">Python, Java, R</span><span class="skill-tag">Advanced</span></div>
+          </div>
+
+          <div class="expertise-block">
+            <h3>Credentials &amp; roles</h3>
+            <ul class="credentials-list">
+              <li>
+                <span class="cred-title">PhD Candidate — Computer Science</span>
+                <span class="cred-sub">University of Salerno · 2023–present</span>
+              </li>
+              <li>
+                <span class="cred-title">AI Act Consultant — Eustema S.p.A.</span>
+                <span class="cred-sub">External consultant · 2023–2025</span>
+              </li>
+              <li>
+                <span class="cred-title">NLP Coach — ProfessionAI</span>
+                <span class="cred-sub">Online educator · 2022–present</span>
+              </li>
+              <li>
+                <span class="cred-title">Teaching Assistant — Luiss Guido Carli</span>
+                <span class="cred-sub">Intelligent Machines and Law · 2023–2024</span>
+              </li>
+              <li>
+                <span class="cred-title">Data Engineer — Malwarebytes</span>
+                <span class="cred-sub">EDR data architecture · 2021</span>
+              </li>
+              <li>
+                <span class="cred-title">Ingegnere dell'Informazione</span>
+                <span class="cred-sub">Consiglio Nazionale Ingegneri · 2022–present</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- WHO I WORK WITH -->
+      <section id="clients">
+        <div class="section-head">
+          <div class="section-eyebrow">Ideal clients</div>
+          <h2>Who I work with</h2>
+        </div>
+        <div class="clients-grid">
+          <div class="client-card">
+            <h4>SMEs deploying AI</h4>
+            <p>Companies that use or are building AI-powered products and need to understand their obligations under the EU AI Act.</p>
+          </div>
+          <div class="client-card">
+            <h4>Legal &amp; compliance teams</h4>
+            <p>Law firms and compliance departments that need a technical counterpart to translate regulatory requirements into engineering decisions.</p>
+          </div>
+          <div class="client-card">
+            <h4>Startups &amp; scale-ups</h4>
+            <p>AI-first companies seeking compliance-by-design from the ground up, including GDPR alignment and trustworthy AI frameworks.</p>
+          </div>
+          <div class="client-card">
+            <h4>Training &amp; education</h4>
+            <p>Organizations and institutions looking for workshops or courses on AI Act, AI governance, NLP, and responsible AI for technical and non-technical audiences.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- CONTACT -->
+      <section id="contact">
+        <div class="contact-section">
+          <div>
+            <h2>Let's work together.</h2>
+            <p>Whether you need a quick assessment or ongoing advisory support, I'm happy to discuss your situation and see how I can help.</p>
+            <p>The best way to reach me is by email. I typically respond within 24 hours.</p>
+            <a href="mailto:lomastoluigi@gmail.com" class="btn-primary" style="display:inline-flex;align-items:center;gap:0.5rem;background:var(--cardinal);color:white;padding:0.85rem 1.6rem;border-radius:2px;font-weight:600;font-size:0.9rem;">
+              Send an email
+              <svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
+            </a>
+          </div>
+          <div>
+            <div class="contact-detail">
+              <span class="contact-label">Email</span>
+              <span class="contact-value"><a href="mailto:lomastoluigi@gmail.com">lomastoluigi@gmail.com</a></span>
+            </div>
+            <div class="contact-detail">
+              <span class="contact-label">Location</span>
+              <span class="contact-value">Napoli, Italy (remote-friendly)</span>
+            </div>
+            <div class="contact-detail">
+              <span class="contact-label">LinkedIn</span>
+              <span class="contact-value"><a href="https://www.linkedin.com/in/luigi-lomasto/" target="_blank">linkedin.com/in/luigi-lomasto</a></span>
+            </div>
+            <div class="contact-detail">
+              <span class="contact-label">Website</span>
+              <span class="contact-value"><a href="https://luigilomasto.it">luigilomasto.it</a></span>
+            </div>
+            <div class="contact-detail">
+              <span class="contact-label">Languages</span>
+              <span class="contact-value">Italian (native) · English (professional)</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <footer>
+    <div class="container">
+      <span>&copy; 2026 Luigi Lomasto. All rights reserved.</span>
+      <span>
+        <a href="research.html">Academic Profile</a> &middot;
+        <a href="https://www.linkedin.com/in/luigi-lomasto/" target="_blank">LinkedIn</a> &middot;
+        <a href="https://scholar.google.com/citations?user=-c4Hl6cAAAAJ&hl=it" target="_blank">Google Scholar</a>
+      </span>
+    </div>
+  </footer>
+
+</body>
+</html>

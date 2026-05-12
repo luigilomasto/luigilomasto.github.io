@@ -3,484 +3,178 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Luigi Lomasto | Academic Profile</title>
-  <meta name="description" content="Academic profile of Luigi Lomasto: PhD candidate in Computer Science working on NLP, information disorder, computational social science, and AI governance." />
+  <title>Luigi Lomasto</title>
+  <meta name="description" content="Luigi Lomasto — AI Act Consultant, Senior Data Scientist, NLP Engineer and PhD Researcher in Computer Science." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
   <style>
-    :root {
-      --cardinal: #8c1515;
-      --cardinal-dark: #6f1111;
-      --ink: #1f2933;
-      --muted: #5b6670;
-      --line: #d9dde3;
-      --bg: #f8f8f8;
-      --paper: #ffffff;
-      --max: 1120px;
-    }
-
-    * { box-sizing: border-box; }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
-
     body {
-      margin: 0;
-      font-family: Georgia, "Times New Roman", serif;
-      color: var(--ink);
-      background: var(--bg);
-      line-height: 1.65;
+      font-family: 'DM Sans', sans-serif;
+      color: #1a1a1a;
+      background: #f7f6f4;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
     }
-
-    img { max-width: 100%; display: block; }
-
-    a {
-      color: var(--cardinal);
-      text-decoration: none;
-    }
-
-    a:hover { text-decoration: underline; }
-
-    .container {
-      width: min(92%, var(--max));
-      margin: 0 auto;
-    }
-
+    a { text-decoration: none; color: inherit; }
     .topbar {
-      background: var(--cardinal);
+      background: #0f2340;
       color: white;
-      padding: 0.85rem 0;
-      border-bottom: 3px solid #d2c295;
-    }
-
-    .topbar .container {
+      padding: 0.75rem 2rem;
       display: flex;
-      justify-content: space-between;
       align-items: center;
-      gap: 1rem;
-      flex-wrap: wrap;
-    }
-
-    .site-title {
-      font-size: 1.1rem;
-      font-weight: bold;
-      letter-spacing: 0.04em;
-    }
-
-    .site-subtitle {
-      font-size: 0.92rem;
-      opacity: 0.92;
-    }
-
-    nav {
-      background: var(--paper);
-      border-bottom: 1px solid var(--line);
-    }
-
-    nav .container {
-      display: flex;
       justify-content: space-between;
-      align-items: center;
-      gap: 1rem;
-      padding: 0.9rem 0;
-      flex-wrap: wrap;
+      border-bottom: 3px solid #c4a962;
     }
-
-    .brand {
-      font-size: 1.35rem;
-      font-weight: 700;
-      color: var(--cardinal-dark);
-    }
-
-    .nav-links {
-      list-style: none;
-      display: flex;
-      gap: 1.25rem;
-      margin: 0;
-      padding: 0;
-      flex-wrap: wrap;
-      font-family: Arial, Helvetica, sans-serif;
-      font-size: 0.95rem;
-    }
-
-    .nav-links a {
-      color: var(--ink);
-      font-weight: 600;
-    }
-
+    .topbar-name { font-family: 'EB Garamond', serif; font-size: 1.15rem; letter-spacing: 0.02em; }
+    .topbar-sub { font-size: 0.82rem; opacity: 0.85; font-weight: 300; }
     .hero {
-      background: var(--paper);
-      padding: 3.5rem 0 2.75rem;
-      border-bottom: 1px solid var(--line);
-    }
-
-    .hero-grid {
+      flex: 1;
       display: grid;
-      grid-template-columns: 1.15fr 0.85fr;
-      gap: 3rem;
-      align-items: start;
+      grid-template-columns: 1fr 1fr;
+      min-height: calc(100vh - 108px);
     }
-
-    .eyebrow {
-      font-family: Arial, Helvetica, sans-serif;
+    .half {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 5rem 4rem;
+      transition: filter 0.2s ease;
+      cursor: pointer;
+      overflow: hidden;
+    }
+    .half:hover { filter: brightness(0.93); }
+    .half-consulting { background: #0f2340; color: white; }
+    .half-academic { background: #8c1515; color: white; border-left: 1px solid rgba(255,255,255,0.1); }
+    .half-inner { position: relative; z-index: 1; max-width: 440px; }
+    .half-tag {
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
       text-transform: uppercase;
-      letter-spacing: 0.08em;
-      font-size: 0.76rem;
-      color: var(--cardinal);
-      margin-bottom: 0.8rem;
-      font-weight: 700;
-    }
-
-    h1 {
-      font-size: clamp(2.3rem, 5vw, 4rem);
-      line-height: 1.06;
-      margin: 0 0 0.75rem;
-      color: #111;
-    }
-
-    .hero-role {
-      font-size: 1.2rem;
-      color: var(--muted);
-      margin-bottom: 1.1rem;
-    }
-
-    .hero-bio {
-      max-width: 60ch;
-      font-size: 1.05rem;
       margin-bottom: 1.5rem;
+      opacity: 0.65;
     }
-
-    .meta {
-      font-family: Arial, Helvetica, sans-serif;
-      color: var(--muted);
-      font-size: 0.95rem;
+    .half-title {
+      font-family: 'EB Garamond', serif;
+      font-size: clamp(2.4rem, 4vw, 3.6rem);
+      line-height: 1.08;
       margin-bottom: 1.2rem;
+      font-weight: 600;
+      color: white;
     }
-
-    .links {
+    .half-desc {
+      font-size: 1rem;
+      line-height: 1.7;
+      margin-bottom: 2rem;
+      font-weight: 300;
+      color: rgba(255,255,255,0.82);
+    }
+    .half-topics {
       display: flex;
       flex-wrap: wrap;
-      gap: 0.9rem 1.2rem;
-      font-family: Arial, Helvetica, sans-serif;
-      font-size: 0.95rem;
-      margin-top: 1rem;
+      gap: 0.5rem;
+      margin-bottom: 2.5rem;
     }
-
-    .portrait-card {
-      background: #fafafa;
-      border: 1px solid var(--line);
-      padding: 1rem;
-    }
-
-    .portrait-card img {
-      width: 100%;
-      aspect-ratio: 4 / 5;
-      object-fit: cover;
-      border: 1px solid var(--line);
-    }
-
-    .portrait-caption {
-      margin-top: 0.8rem;
-      font-family: Arial, Helvetica, sans-serif;
-      font-size: 0.88rem;
-      color: var(--muted);
-    }
-
-    .main {
-      padding: 2.5rem 0 4rem;
-    }
-
-    .content-grid {
-      display: grid;
-      grid-template-columns: 2fr 1fr;
-      gap: 2.2rem;
-      align-items: start;
-    }
-
-    .panel {
-      background: var(--paper);
-      border: 1px solid var(--line);
-      padding: 1.6rem;
-      margin-bottom: 1.5rem;
-    }
-
-    .panel h2 {
-      margin-top: 0;
-      margin-bottom: 1rem;
-      font-size: 1.5rem;
-      color: var(--cardinal-dark);
-      border-bottom: 1px solid var(--line);
-      padding-bottom: 0.5rem;
-    }
-
-    .section-list,
-    .pub-list,
-    .news-list,
-    .skills-list {
-      margin: 0;
-      padding-left: 1.2rem;
-    }
-
-    .pub-list li,
-    .news-list li,
-    .section-list li,
-    .skills-list li {
-      margin-bottom: 0.9rem;
-    }
-
-    .tagline {
-      font-family: Arial, Helvetica, sans-serif;
-      color: var(--muted);
-      font-size: 0.92rem;
-      margin-top: -0.4rem;
-      margin-bottom: 1rem;
-    }
-
-    .side-block {
-      margin-bottom: 1.5rem;
-    }
-
-    .side-block p,
-    .side-block li,
-    .meta,
-    .links,
-    .nav-links,
-    .portrait-caption {
-      font-family: Arial, Helvetica, sans-serif;
-    }
-
-    .cv-button {
-      display: inline-block;
-      background: var(--cardinal);
-      color: white;
-      padding: 0.75rem 1rem;
-      font-family: Arial, Helvetica, sans-serif;
-      font-weight: 700;
+    .topic-pill {
+      font-size: 0.78rem;
+      padding: 0.3rem 0.8rem;
       border-radius: 2px;
+      font-weight: 500;
+      background: rgba(255,255,255,0.13);
+      color: rgba(255,255,255,0.9);
+      border: 1px solid rgba(255,255,255,0.22);
     }
-
-    .cv-button:hover {
-      background: var(--cardinal-dark);
-      text-decoration: none;
+    .enter-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      font-size: 0.9rem;
+      font-weight: 600;
+      padding: 0.85rem 1.6rem;
+      border-radius: 2px;
+      letter-spacing: 0.02em;
+      transition: background 0.2s ease;
+      width: fit-content;
+      background: rgba(255,255,255,0.15);
+      color: white;
+      border: 1px solid rgba(255,255,255,0.35);
     }
-
+    .enter-btn:hover { background: rgba(255,255,255,0.25); }
+    .enter-btn svg { width: 16px; height: 16px; transition: transform 0.2s ease; }
+    .enter-btn:hover svg { transform: translateX(4px); }
     footer {
-      background: #2b2b2b;
-      color: #e8e8e8;
-      padding: 2rem 0;
-      border-top: 4px solid var(--cardinal);
+      background: #111;
+      color: #888;
+      padding: 1.2rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.82rem;
+      flex-wrap: wrap;
+      gap: 0.5rem;
     }
-
-    footer p {
-      margin: 0.35rem 0;
-      font-family: Arial, Helvetica, sans-serif;
-      font-size: 0.92rem;
-    }
-
-    @media (max-width: 900px) {
-      .hero-grid,
-      .content-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .portrait-card {
-        max-width: 380px;
-      }
-    }
-
-    @media (max-width: 640px) {
-      h1 { font-size: 2.2rem; }
-      .panel { padding: 1.2rem; }
-      nav .container,
-      .topbar .container { align-items: flex-start; }
+    footer a { color: #aaa; }
+    footer a:hover { color: white; }
+    @media (max-width: 768px) {
+      .hero { grid-template-columns: 1fr; min-height: auto; }
+      .half { padding: 3.5rem 2rem; min-height: 55vh; }
     }
   </style>
 </head>
 <body>
-  <header class="topbar">
-    <div class="container">
-      <div class="site-title">Luigi Lomasto</div>
-      <div class="site-subtitle">PhD in Computer Science · University of Salerno</div>
-    </div>
-  </header>
-
-  <nav>
-    <div class="container">
-      <div class="brand">Academic Profile</div>
-      <ul class="nav-links">
-        <li><a href="#about">About</a></li>
-        <li><a href="#research">Research</a></li>
-        <li><a href="#publications">Publications</a></li>
-        <li><a href="#teaching">Teaching</a></li>
-        <li><a href="#experience">Experience</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-    </div>
-  </nav>
-
-  <section class="hero" id="about">
-    <div class="container hero-grid">
-      <div>
-        <div class="eyebrow">Research Profile</div>
-        <h1>Luigi Lomasto</h1>
-        <div class="hero-role">PhD Candidate in Computer Science, University of Salerno</div>
-        <p class="hero-bio">
-          I am a PhD candidate in Computer Science at the University of Salerno.
-          My research explores information disorder and the dynamics of online discourse, with a focus on how digital platforms shape public opinion and collective behavior. I study the spread of misinformation, conspiracy narratives, and polarized communities, and how social and emotional dynamics influence the way people engage with information online. More broadly, my work examines the societal implications of digital technologies and artificial intelligence, with the goal of supporting trustworthy and socially beneficial systems. I conduct my research as part of the <a href="https://www.di.unisa.it/dipartimento/strutture?id=682">EdgeLab Research Group</a> at the University of Salerno.
-          </p>
-        <div class="meta">
-          Napoli, Italy · llomasto@unisa.it · lomastoluigi@gmail.com · Personal Website · LinkedIn
+  <div class="topbar">
+    <div class="topbar-name">Luigi Lomasto</div>
+    <div class="topbar-sub">Napoli, Italy &middot; lomastoluigi@gmail.com</div>
+  </div>
+  <main class="hero">
+    <a href="consulting.html" class="half half-consulting">
+      <div class="half-inner">
+        <div class="half-tag">Industry &amp; Consulting</div>
+        <h2 class="half-title">Professional<br>Services</h2>
+        <p class="half-desc">Senior Data Scientist and AI Act consultant. Supporting companies in EU AI Act compliance, NLP engineering, and responsible AI deployment.</p>
+        <div class="half-topics">
+          <span class="topic-pill">EU AI Act</span>
+          <span class="topic-pill">AI Governance</span>
+          <span class="topic-pill">Data Science</span>
+          <span class="topic-pill">NLP Engineering</span>
+          <span class="topic-pill">Training &amp; Education</span>
         </div>
-        <div class="links">
-          <a href="Curriculum_Vitae_Luigi_Lomasto.pdf">Curriculum Vitae</a>
-          <a href="https://www.linkedin.com/in/luigi-lomasto/?originalSubdomain=it">LinkedIn</a>
-          <a href="https://scholar.google.com/citations?user=-c4Hl6cAAAAJ&hl=it">Google Scholar</a>
-          <a href="https://orcid.org/0000-0002-1461-296X">ORCID</a>
-          <a href="https://arxiv.org/search/cs?searchtype=author&query=Lomasto,+L">ArXiv</a>
+        <span class="enter-btn">
+          View Services
+          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
+        </span>
+      </div>
+    </a>
+    <a href="research.html" class="half half-academic">
+      <div class="half-inner">
+        <div class="half-tag">Research &amp; Academia</div>
+        <h2 class="half-title">Academic<br>Profile</h2>
+        <p class="half-desc">PhD candidate at the University of Salerno. Research in NLP, information disorder, computational social science, and AI governance.</p>
+        <div class="half-topics">
+          <span class="topic-pill">Information Disorder</span>
+          <span class="topic-pill">NLP</span>
+          <span class="topic-pill">Computational Social Science</span>
+          <span class="topic-pill">AI Governance</span>
+          <span class="topic-pill">Publications</span>
         </div>
+        <span class="enter-btn">
+          View Research Profile
+          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
+        </span>
       </div>
-
-      <aside class="portrait-card">
-        <img src="/img/luigilomasto.jpg" alt="Portrait of Luigi Lomasto" />
-      </aside>
-    </div>
-  </section>
-
-  <main class="main">
-    <div class="container content-grid">
-      <div>
-        <section class="panel" id="research">
-          <h2>Research</h2>
-          <p class="tagline">Core themes, methods, and current directions.</p>
-          <p>
-            My research focuses on information disorder, natural language processing, computational methods for online
-            discourse analysis, and the governance of AI systems. I investigate how fake news, conspiracy dynamics and echo chambers
-            emerge in digital environments and how emotional and linguistic patterns can be modeled computationally.
-          </p>
-          <ul class="section-list">
-            <li><strong>Information Disorder:</strong> analysis of fake news, influential news, and conspiratorial communities.</li>
-            <li><strong>Natural Language Processing:</strong> text classification, legal NLP, embeddings, transformers, and sentiment-aware models.</li>
-            <li><strong>Computational Social Science:</strong> social media analysis, discourse dynamics, and emotional signature modeling.</li>
-            <li><strong>AI Governance:</strong> EU AI Act classification, risk assessment, trustworthy AI, and lifecycle governance.</li>
-            <li><strong>Methods:</strong> NLP, machine learning, deep learning, vector analysis, rough set theory, and data-intensive computation.</li>
-          </ul>
-        </section>
-
-        <section class="panel" id="publications">
-          <h2>Selected Publications</h2>
-          <p class="tagline">Journal articles and conference proceedings.</p>
-          <ol class="pub-list">
-            <li><strong>Lomasto L.</strong>, Lettieri N., Malandrino D., Mosca V., Zaccagnino R. (2026). Modeling Emotional Signatures to Detect Conspiratorial Communities on Social Media. <em>Neural Computing &amp; Applications</em> (Q1).</li>
-            <li>Zaccagnino R., Lettieri N., Malandrino D., <strong>Lomasto L.</strong>, Camoia A., Guarino A. (2025). Turning AI into a regulatory sandbox: exploring information disorder mitigation strategies with ABM and deep reinforcement learning. <em>Neural Computing &amp; Applications</em> (Q1).</li>
-            <li>Gaeta A., Loia V., <strong>Lomasto L.</strong>, Orciuoli F. (2023). A novel approach based on rough set theory for analyzing information disorder. <em>Applied Intelligence</em> (Q2).</li>
-            <li>Abbruzzese R., Gaeta A., Loia V., <strong>Lomasto L.</strong>, Orciuoli F. (2021). Detecting influential news in online communities: an approach based on hexagons of opposition generated by three-way decisions and probabilistic rough sets. <em>Information Sciences</em> (Q1).</li>
-            <li>Lettieri N., Zaccagnino R., Malandrino D., <strong>Lomasto L.</strong>, Buccella I. (2025). Nets of Fairness. Graph-Based Inference and Visualization to Delve into Gig Workers’ Conditions. <em>International Conference on Information Visualisation (IV)</em>.</li>
-            <li><strong>Lomasto L.</strong>, Lettieri N., Malandrino D., Mosca V., Zaccagnino R. (2025). Unveiling Emotional Signature in Conspiracy Topics on Social Media Through Vector Analysis. <em>International Conference on Applications of Natural Language to Information Systems (NLDB)</em>.</li>
-            <li><strong>Lomasto L.</strong>, Aurucci R., Brandi Y., Gajewski L., Lettieri N., Malandrino D. (2024). Sentiment Impact on Fake News Detection: A Preliminary Study. <em>International Conference on Information Processing and Management of Uncertainty (IPMU)</em>.</li>
-            <li>Botticelli C., De Prisco R., Lettieri N., <strong>Lomasto L.</strong>, Malandrino D. (2024). Visual music perception for stochastic music composition. <em>International Conference on Information Visualisation (IV)</em>.</li>
-            <li>Capuano N., <strong>Lomasto L.</strong>, Pozzi A., Toti D. (2022). Natural Language Understanding for the Recommendation of Learning Resources Within Student Collaboration Tools. <em>The Learning Ideas Conference</em>.</li>
-            <li>Rossi D., Ströele V., Braga R., Caballé S., Capuano N., Campos F., Dantas M. A. R., <strong>Lomasto L.</strong> (2021). CAERS: A Conversational Agent for Intervention in MOOCs’ Learning Processes. <em>The Learning Ideas Conference</em>.</li>
-            <li>Ciapetti A., Di Florio R., <strong>Lomasto L.</strong>, Miscione G., Ruggiero G., Toti D. (2019). NETHIC: A System for Automatic Text Classification using Neural Networks and Hierarchical Taxonomies. <em>International Conference on Enterprise Information Systems (ICEIS)</em>.</li>
-            <li><strong>Lomasto L.</strong>, Di Florio R., Ciapetti A., Miscione G., Ruggiero G., Toti D. (2019). An automatic text classification method based on hierarchical taxonomies, neural networks and document embedding: the NETHIC tool. <em>International Conference on Enterprise Information Systems</em>.</li>
-            <li>Costagliola G., Fuccella V., Leo A., <strong>Lomasto L.</strong>, Romano S. (2018). The design and evaluation of a gestural keyboard for entering programming code on mobile devices. <em>IEEE Symposium on Visual Languages and Human-Centric Computing (VL/HCC)</em>.</li>
-          </ol>
-        </section>
-
-        <section class="panel" id="teaching">
-          <h2>Teaching and Academic Appointments</h2>
-          <p class="tagline">Teaching support, academic service, and course involvement.</p>
-          <ul class="section-list">
-            <li><strong>University of Salerno (2023–Present):</strong> Teaching Assistant and Academic Appointee (Cultore della Materia) for Internet Data Analysis and Distributed Programming.</li>
-            <li><strong>LUISS Guido Carli University (2023–2024):</strong> Teaching Assistant and Academic Appointee (Cultore della Materia) for Intelligent Machines and Law.</li>
-            <li><strong>Program Committee:</strong> NLDB 2024 and NLDB 2025.</li>
-            <li><strong>Editorial and Reviewing Activities:</strong> Reviewer for <em>Information Sciences</em>, <em>Applied Intelligence</em>, <em>Expert Systems with Applications</em>, and <em>Frontiers in Artificial Intelligence</em>.</li>
-          </ul>
-        </section>
-
-        <section class="panel" id="experience">
-          <h2>Professional Experience</h2>
-          <p class="tagline">Industry and applied research experience in AI, data engineering, and machine learning.</p>
-          <ul class="section-list">
-            <li><strong>2023–2025 · Senior Data Scientist | AI Act Consultant, Eustema S.p.A.:</strong> AI Act classification and risk assessment of AI systems, trustworthy AI governance, regulatory alignment, technical documentation, and AI lifecycle governance.</li>
-            <li><strong>2021 · Data Engineer, Malwarebytes:</strong> scalable EDR data architecture, Apache Spark Structured Streaming, ElasticSearch real-time processing, and AWS services including EMR, Redshift, Neptune, S3, and SQS.</li>
-            <li><strong>2019–2021 · Machine Learning &amp; NLP Engineer (R&amp;D), Eustema S.p.A.:</strong> Legal-NER, legal embeddings, legal document classification, and outcome prediction using Word2Vec, Doc2Vec, and BERT.</li>
-            <li><strong>2017–2019 · Machine Learning Engineer, Innovation Engineering:</strong> large-scale document classification, NLP pipelines, Solr, Spark, Docker, and microservice-based systems.</li>
-          </ul>
-        </section>
-
-        <section class="panel" id="education">
-          <h2>Education</h2>
-          <p class="tagline">Academic training in Computer Science.</p>
-          <ul class="section-list">
-            <li><strong>2023–Present:</strong> PhD in Computer Science, University of Salerno, Italy.</li>
-            <li><strong>2014–2016:</strong> MSc in Computer Science – Data and Knowledge Management, University of Salerno, Italy.</li>
-            <li><strong>2009–2013:</strong> BSc in Computer Science, University of Salerno, Italy.</li>
-          </ul>
-        </section>
-      </div>
-
-      <aside>
-        <section class="panel side-block">
-          <h2>Profile</h2>
-          <p>
-            PhD candidate in Computer Science with academic and industry experience spanning NLP, machine learning,
-            information disorder, computational social science, and AI governance.
-          </p>
-          <p><a class="cv-button" href="Curriculum_Vitae_Luigi_Lomasto.pdf">Download CV</a></p>
-        </section>
-
-        <section class="panel side-block">
-          <h2>Current Focus</h2>
-          <ul class="news-list">
-            <li>Social Good and Responsible Technology</li>
-            <li>Information Disorder and Online Narratives</li>
-            <li>Computational Social Science</li>
-            <li>Artificial Intelligence and Governance</li>
-            <li>Simulation and Data‑Driven Modeling of Social Systems</li>
-          </ul>
-        </section>
-
-        <!--
-        <section class="panel side-block">
-          <h2>Technical Skills</h2>
-          <ul class="skills-list">
-            <li><strong>Programming:</strong> Python, Java, C/C++, R</li>
-            <li><strong>AI/ML:</strong> NLP, Deep Learning, Transformers, BERT, Classification</li>
-            <li><strong>Big Data:</strong> Apache Spark, Spark Streaming, ElasticSearch</li>
-            <li><strong>Cloud:</strong> AWS (EMR, Redshift, Neptune, S3, SQS)</li>
-            <li><strong>Databases:</strong> MySQL, Neo4j, NoSQL</li>
-            <li><strong>DevOps:</strong> Docker, Microservices</li>
-            <li><strong>AI Governance:</strong> EU AI Act, Risk Assessment, Trustworthy AI Frameworks</li>
-          </ul>
-        </section>
-
-
-        <section class="panel side-block">
-          <h2>Academic Links</h2>
-          <ul class="news-list">
-            <li><a href="#">Personal Website</a></li>
-            <li><a href="#">LinkedIn</a></li>
-            <li><a href="#">Google Scholar</a></li>
-            <li><a href="#">GitHub</a></li>
-          </ul>
-        </section>
-        -->
-
-        <section class="panel side-block" id="contact">
-          <h2>Contact</h2>
-          <p>
-            <strong>Name:</strong> Luigi Lomasto<br>
-            <strong>Email:</strong> llomasto@unisa.it<br>
-            <strong>Additional email:</strong> lomastoluigi@gmail.com<br>
-            <strong>Location:</strong> Napoli, Italy<br>
-            <strong>Institution:</strong> University of Salerno
-          </p>
-        </section>
-      </aside>
-    </div>
+    </a>
   </main>
-
   <footer>
-    <div class="container">
-      <p>© 2026 Luigi Lomasto. All rights reserved.</p>
-      <p>Designed for GitHub Pages as a clean academic homepage.</p>
-    </div>
+    <span>&copy; 2026 Luigi Lomasto</span>
+    <span>
+      <a href="https://www.linkedin.com/in/luigi-lomasto/" target="_blank">LinkedIn</a> &middot;
+      <a href="https://scholar.google.com/citations?user=-c4Hl6cAAAAJ&hl=it" target="_blank">Google Scholar</a> &middot;
+      <a href="https://orcid.org/0000-0002-1461-296X" target="_blank">ORCID</a>
+    </span>
   </footer>
 </body>
 </html>
