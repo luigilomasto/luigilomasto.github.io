@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -66,6 +66,34 @@
     .site-subtitle {
       font-size: 0.92rem;
       opacity: 0.92;
+    }
+
+    .lang-switch {
+      display: flex;
+      gap: 0.4rem;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    .lang-switch button {
+      background: rgba(255,255,255,0.12);
+      border: 1px solid rgba(255,255,255,0.55);
+      color: white;
+      font-size: 0.82rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      padding: 0.32rem 0.7rem;
+      border-radius: 999px;
+      cursor: pointer;
+      transition: background 0.15s ease;
+    }
+
+    .lang-switch button:hover {
+      background: rgba(255,255,255,0.25);
+    }
+
+    .lang-switch button[aria-pressed="true"] {
+      background: white;
+      color: var(--cardinal-dark);
     }
 
     nav {
@@ -224,6 +252,33 @@
       margin-bottom: 0.9rem;
     }
 
+    .pub-year {
+      font-family: Arial, Helvetica, sans-serif;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: var(--cardinal);
+      margin: 1.3rem 0 0.6rem;
+    }
+
+    .pub-year:first-child { margin-top: 0; }
+
+    .badge {
+      display: inline-block;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.03em;
+      color: var(--cardinal-dark);
+      background: #f3e6e6;
+      border: 1px solid #e3c9c9;
+      border-radius: 3px;
+      padding: 0.08rem 0.4rem;
+      margin-left: 0.35rem;
+      vertical-align: 1px;
+    }
+
     .tagline {
       font-family: Arial, Helvetica, sans-serif;
       color: var(--muted);
@@ -273,6 +328,9 @@
       font-size: 0.92rem;
     }
 
+    html[data-lang="en"] [lang="it"] { display: none; }
+    html[data-lang="it"] [lang="en"] { display: none; }
+
     @media (max-width: 900px) {
       .hero-grid,
       .content-grid {
@@ -295,21 +353,32 @@
 <body>
   <header class="topbar">
     <div class="container">
-      <div class="site-title">Luigi Lomasto</div>
-      <div class="site-subtitle">PhD in Computer Science · University of Salerno</div>
+      <div>
+        <div class="site-title">Luigi Lomasto</div>
+        <span lang="en" class="site-subtitle">PhD in Computer Science · University of Salerno</span>
+        <span lang="it" class="site-subtitle">Dottorato in Informatica · Università di Salerno</span>
+      </div>
+      <div class="lang-switch" role="group" aria-label="Language selector">
+        <button type="button" data-set-lang="en" aria-pressed="true">EN</button>
+        <button type="button" data-set-lang="it" aria-pressed="false">IT</button>
+      </div>
     </div>
   </header>
 
   <nav>
     <div class="container">
-      <div class="brand">Academic Profile</div>
+      <div class="brand">
+        <span lang="en">Academic Profile</span>
+        <span lang="it">Profilo Accademico</span>
+      </div>
       <ul class="nav-links">
-        <li><a href="#about">About</a></li>
-        <li><a href="#research">Research</a></li>
-        <li><a href="#publications">Publications</a></li>
-        <li><a href="#teaching">Teaching</a></li>
-        <li><a href="#experience">Experience</a></li>
-        <li><a href="#contact">Contact</a></li>
+        <li><a href="#about"><span lang="en">About</span><span lang="it">Chi sono</span></a></li>
+        <li><a href="#research"><span lang="en">Research</span><span lang="it">Ricerca</span></a></li>
+        <li><a href="#publications"><span lang="en">Publications</span><span lang="it">Pubblicazioni</span></a></li>
+        <li><a href="#teaching"><span lang="en">Teaching</span><span lang="it">Didattica</span></a></li>
+        <li><a href="didattica.html"><span lang="en">Teaching Materials</span><span lang="it">Materiale didattico</span></a></li>
+        <li><a href="#experience"><span lang="en">Experience</span><span lang="it">Esperienza</span></a></li>
+        <li><a href="#contact"><span lang="en">Contact</span><span lang="it">Contatti</span></a></li>
       </ul>
     </div>
   </nav>
@@ -317,18 +386,30 @@
   <section class="hero" id="about">
     <div class="container hero-grid">
       <div>
-        <div class="eyebrow">Research Profile</div>
+        <div class="eyebrow">
+          <span lang="en">Research Profile</span>
+          <span lang="it">Profilo di Ricerca</span>
+        </div>
         <h1>Luigi Lomasto</h1>
-        <div class="hero-role">PhD Candidate in Computer Science, University of Salerno</div>
-        <p class="hero-bio">
-          I am a PhD candidate in Computer Science at the University of Salerno.
-          My research explores information disorder and the dynamics of online discourse, with a focus on how digital platforms shape public opinion and collective behavior. I study the spread of misinformation, conspiracy narratives, and polarized communities, and how social and emotional dynamics influence the way people engage with information online. More broadly, my work examines the societal implications of digital technologies and artificial intelligence, with the goal of supporting trustworthy and socially beneficial systems. I conduct my research as part of the <a href="https://www.di.unisa.it/dipartimento/strutture?id=682">EdgeLab Research Group</a> at the University of Salerno.
-          </p>
+        <div class="hero-role">
+          <span lang="en">PhD Candidate in Computer Science, University of Salerno</span>
+          <span lang="it">Dottorando in Informatica, Università di Salerno</span>
+        </div>
+
+        <p class="hero-bio" lang="en">
+          I am a PhD candidate in Computer Science at the University of Salerno, currently completing my doctorate.
+          My research explores information disorder and the dynamics of online discourse, with a focus on how digital platforms shape public opinion and collective behavior. I study the spread of misinformation, conspiracy narratives, and polarized communities, combining natural language processing, agent-based modeling, and deep reinforcement learning to understand and simulate how social and emotional dynamics influence the way people engage with information online. More broadly, my work examines the societal implications of digital technologies and artificial intelligence, including AI Act compliance and governance, with the goal of supporting trustworthy and socially beneficial systems. I conduct my research as part of the <a href="https://www.di.unisa.it/dipartimento/strutture?id=682">EdgeLab Research Group</a> at the University of Salerno, and I am currently a visiting researcher with the SIAS group in Amsterdam.
+        </p>
+        <p class="hero-bio" lang="it">
+          Sono dottorando in Informatica presso l'Università di Salerno, in procinto di completare il dottorato.
+          La mia ricerca esplora l'information disorder e le dinamiche del discorso online, con particolare attenzione a come le piattaforme digitali plasmano l'opinione pubblica e i comportamenti collettivi. Studio la diffusione della disinformazione, delle narrazioni cospirazioniste e delle comunità polarizzate, combinando natural language processing, agent-based modeling e deep reinforcement learning per comprendere e simulare come le dinamiche sociali ed emotive influenzino il modo in cui le persone si relazionano con l'informazione online. Più in generale, il mio lavoro analizza le implicazioni sociali delle tecnologie digitali e dell'intelligenza artificiale, inclusa la conformità e la governance rispetto all'AI Act, con l'obiettivo di favorire sistemi affidabili e socialmente benefici. Svolgo la mia ricerca all'interno dell'<a href="https://www.di.unisa.it/dipartimento/strutture?id=682">EdgeLab Research Group</a> dell'Università di Salerno, e sono attualmente visiting researcher presso il gruppo SIAS di Amsterdam.
+        </p>
+
         <div class="meta">
-          Napoli, Italy · llomasto@unisa.it · ingluigilomasto@gmail.com · Personal Website · LinkedIn
+          <span lang="en">Napoli / Amsterdam</span><span lang="it">Napoli / Amsterdam</span> · llomasto@unisa.it · ingluigilomasto@gmail.com
         </div>
         <div class="links">
-          <a href="Curriculum_Vitae_Luigi_Lomasto.pdf">Curriculum Vitae</a>
+          <a href="Curriculum_Vitae_Luigi_Lomasto.pdf"><span lang="en">Curriculum Vitae</span><span lang="it">Curriculum Vitae</span></a>
           <a href="https://www.linkedin.com/in/luigi-lomasto/?originalSubdomain=it">LinkedIn</a>
           <a href="https://scholar.google.com/citations?user=-c4Hl6cAAAAJ&hl=it">Google Scholar</a>
           <a href="https://orcid.org/0000-0002-1461-296X">ORCID</a>
@@ -346,130 +427,231 @@
     <div class="container content-grid">
       <div>
         <section class="panel" id="research">
-          <h2>Research</h2>
-          <p class="tagline">Core themes, methods, and current directions.</p>
-          <p>
+          <h2><span lang="en">Research</span><span lang="it">Ricerca</span></h2>
+          <p class="tagline" lang="en">Core themes, methods, and current directions.</p>
+          <p class="tagline" lang="it">Temi principali, metodi e direzioni di ricerca attuali.</p>
+
+          <p lang="en">
             My research focuses on information disorder, natural language processing, computational methods for online
-            discourse analysis, and the governance of AI systems. I investigate how fake news, conspiracy dynamics and echo chambers
-            emerge in digital environments and how emotional and linguistic patterns can be modeled computationally.
+            discourse analysis, agent-based/deep reinforcement learning simulation, and the governance of AI systems. I investigate how fake news, conspiracy dynamics and echo chambers
+            emerge in digital environments, how emotional and linguistic patterns can be modeled computationally, and how simulated interventions can mitigate information disorder at the network level.
           </p>
-          <ul class="section-list">
+          <p lang="it">
+            La mia ricerca si concentra su information disorder, natural language processing, metodi computazionali per l'analisi del discorso online, simulazione tramite agent-based modeling/deep reinforcement learning e governance dei sistemi di intelligenza artificiale. Studio come fake news, dinamiche cospirazioniste ed echo chamber emergano negli ambienti digitali, come i pattern emotivi e linguistici possano essere modellati computazionalmente, e come interventi simulati possano mitigare l'information disorder a livello di rete.
+          </p>
+
+          <ul class="section-list" lang="en">
             <li><strong>Information Disorder:</strong> analysis of fake news, influential news, and conspiratorial communities.</li>
             <li><strong>Natural Language Processing:</strong> text classification, legal NLP, embeddings, transformers, and sentiment-aware models.</li>
             <li><strong>Computational Social Science:</strong> social media analysis, discourse dynamics, and emotional signature modeling.</li>
+            <li><strong>Agent-Based Modeling &amp; Deep RL:</strong> simulation-based frameworks and network-aware intervention policies for information disorder mitigation.</li>
             <li><strong>AI Governance:</strong> EU AI Act classification, risk assessment, trustworthy AI, and lifecycle governance.</li>
             <li><strong>Methods:</strong> NLP, machine learning, deep learning, vector analysis, rough set theory, and data-intensive computation.</li>
+          </ul>
+          <ul class="section-list" lang="it">
+            <li><strong>Information Disorder:</strong> analisi di fake news, notizie influenti e comunità cospirazioniste.</li>
+            <li><strong>Natural Language Processing:</strong> classificazione testuale, NLP giuridico, embeddings, transformer e modelli sentiment-aware.</li>
+            <li><strong>Computational Social Science:</strong> analisi dei social media, dinamiche del discorso e modellazione della firma emotiva.</li>
+            <li><strong>Agent-Based Modeling &amp; Deep RL:</strong> framework simulativi e politiche di intervento network-aware per la mitigazione dell'information disorder.</li>
+            <li><strong>AI Governance:</strong> classificazione secondo l'EU AI Act, risk assessment, trustworthy AI e governance del ciclo di vita.</li>
+            <li><strong>Metodi:</strong> NLP, machine learning, deep learning, vector analysis, rough set theory e calcolo data-intensive.</li>
           </ul>
         </section>
 
         <section class="panel" id="publications">
-          <h2>Selected Publications</h2>
-          <p class="tagline">Journal articles and conference proceedings.</p>
+          <h2><span lang="en">Selected Publications</span><span lang="it">Pubblicazioni Selezionate</span></h2>
+          <p class="tagline" lang="en">Journal articles and conference proceedings.</p>
+          <p class="tagline" lang="it">Articoli su rivista e atti di conferenza.</p>
+
+          <div class="pub-year">2026</div>
           <ol class="pub-list">
-            <li><strong>Lomasto L.</strong>, Lettieri N., Malandrino D., Mosca V., Zaccagnino R. (2026). Modeling Emotional Signatures to Detect Conspiratorial Communities on Social Media. <em>Neural Computing &amp; Applications</em> (Q1).</li>
-            <li>Zaccagnino R., Lettieri N., Malandrino D., <strong>Lomasto L.</strong>, Camoia A., Guarino A. (2025). Turning AI into a regulatory sandbox: exploring information disorder mitigation strategies with ABM and deep reinforcement learning. <em>Neural Computing &amp; Applications</em> (Q1).</li>
-            <li>Gaeta A., Loia V., <strong>Lomasto L.</strong>, Orciuoli F. (2023). A novel approach based on rough set theory for analyzing information disorder. <em>Applied Intelligence</em> (Q2).</li>
-            <li>Abbruzzese R., Gaeta A., Loia V., <strong>Lomasto L.</strong>, Orciuoli F. (2021). Detecting influential news in online communities: an approach based on hexagons of opposition generated by three-way decisions and probabilistic rough sets. <em>Information Sciences</em> (Q1).</li>
-            <li>Lettieri N., Zaccagnino R., Malandrino D., <strong>Lomasto L.</strong>, Buccella I. (2025). Nets of Fairness. Graph-Based Inference and Visualization to Delve into Gig Workers’ Conditions. <em>International Conference on Information Visualisation (IV)</em>.</li>
+            <li><strong>Lomasto L.</strong>, Lettieri N., Malandrino D., Mosca V., Zaccagnino R. (2026). Modeling Emotional Signatures to Detect Conspiratorial Communities on Social Media. <em>Neural Computing &amp; Applications</em> <span class="badge">Q1</span>.</li>
+            <li><strong>Lomasto L.</strong>, Lettieri N., Malandrino D., Zaccagnino R. (2026). Exploring Network-Aware Intervention Policies for Information Disorder in Social Networks: A Simulation-Based Framework. <em>IEEE/ACM International Conference on Advances in Social Networks Analysis and Mining (ASONAM)</em> <span class="badge">CORE B</span>.</li>
+            <li>Abbruzzese R., Cappetta D., Lanzara E., Lettieri N., <strong>Lomasto L.</strong>, Malandrino D., Zaccagnino R. (2026). AICMF: An AI Compliance Methodology Framework for EU AI Act Verification in Industrial AI Systems. <em>International Conference on Information Processing and Management of Uncertainty (IPMU)</em>.</li>
+          </ol>
+
+          <div class="pub-year">2025</div>
+          <ol class="pub-list">
+            <li>Zaccagnino R., Lettieri N., Malandrino D., <strong>Lomasto L.</strong>, Camoia A., Guarino A. (2025). Turning AI into a regulatory sandbox: exploring information disorder mitigation strategies with ABM and deep reinforcement learning. <em>Neural Computing &amp; Applications</em> <span class="badge">Q1</span>.</li>
+            <li>Lettieri N., Zaccagnino R., Malandrino D., <strong>Lomasto L.</strong>, Buccella I. (2025). Nets of Fairness. Graph-Based Inference and Visualization to Delve into Gig Workers' Conditions. <em>International Conference on Information Visualisation (IV)</em>.</li>
             <li><strong>Lomasto L.</strong>, Lettieri N., Malandrino D., Mosca V., Zaccagnino R. (2025). Unveiling Emotional Signature in Conspiracy Topics on Social Media Through Vector Analysis. <em>International Conference on Applications of Natural Language to Information Systems (NLDB)</em>.</li>
+          </ol>
+
+          <div class="pub-year">2024</div>
+          <ol class="pub-list">
             <li><strong>Lomasto L.</strong>, Aurucci R., Brandi Y., Gajewski L., Lettieri N., Malandrino D. (2024). Sentiment Impact on Fake News Detection: A Preliminary Study. <em>International Conference on Information Processing and Management of Uncertainty (IPMU)</em>.</li>
             <li>Botticelli C., De Prisco R., Lettieri N., <strong>Lomasto L.</strong>, Malandrino D. (2024). Visual music perception for stochastic music composition. <em>International Conference on Information Visualisation (IV)</em>.</li>
+          </ol>
+
+          <div class="pub-year">2023</div>
+          <ol class="pub-list">
+            <li>Gaeta A., Loia V., <strong>Lomasto L.</strong>, Orciuoli F. (2023). A novel approach based on rough set theory for analyzing information disorder. <em>Applied Intelligence</em> <span class="badge">Q2</span>.</li>
+          </ol>
+
+          <div class="pub-year">2022</div>
+          <ol class="pub-list">
             <li>Capuano N., <strong>Lomasto L.</strong>, Pozzi A., Toti D. (2022). Natural Language Understanding for the Recommendation of Learning Resources Within Student Collaboration Tools. <em>The Learning Ideas Conference</em>.</li>
-            <li>Rossi D., Ströele V., Braga R., Caballé S., Capuano N., Campos F., Dantas M. A. R., <strong>Lomasto L.</strong> (2021). CAERS: A Conversational Agent for Intervention in MOOCs’ Learning Processes. <em>The Learning Ideas Conference</em>.</li>
+          </ol>
+
+          <div class="pub-year">2021</div>
+          <ol class="pub-list">
+            <li>Abbruzzese R., Gaeta A., Loia V., <strong>Lomasto L.</strong>, Orciuoli F. (2021). Detecting influential news in online communities: an approach based on hexagons of opposition generated by three-way decisions and probabilistic rough sets. <em>Information Sciences</em> <span class="badge">Q1</span>.</li>
+            <li>Rossi D., Ströele V., Braga R., Caballé S., Capuano N., Campos F., Dantas M. A. R., <strong>Lomasto L.</strong> (2021). CAERS: A Conversational Agent for Intervention in MOOCs' Learning Processes. <em>The Learning Ideas Conference</em>.</li>
+          </ol>
+
+          <div class="pub-year">2019</div>
+          <ol class="pub-list">
             <li>Ciapetti A., Di Florio R., <strong>Lomasto L.</strong>, Miscione G., Ruggiero G., Toti D. (2019). NETHIC: A System for Automatic Text Classification using Neural Networks and Hierarchical Taxonomies. <em>International Conference on Enterprise Information Systems (ICEIS)</em>.</li>
             <li><strong>Lomasto L.</strong>, Di Florio R., Ciapetti A., Miscione G., Ruggiero G., Toti D. (2019). An automatic text classification method based on hierarchical taxonomies, neural networks and document embedding: the NETHIC tool. <em>International Conference on Enterprise Information Systems</em>.</li>
+          </ol>
+
+          <div class="pub-year">2018</div>
+          <ol class="pub-list">
             <li>Costagliola G., Fuccella V., Leo A., <strong>Lomasto L.</strong>, Romano S. (2018). The design and evaluation of a gestural keyboard for entering programming code on mobile devices. <em>IEEE Symposium on Visual Languages and Human-Centric Computing (VL/HCC)</em>.</li>
           </ol>
         </section>
 
         <section class="panel" id="teaching">
-          <h2>Teaching and Academic Appointments</h2>
-          <p class="tagline">Teaching support, academic service, and course involvement.</p>
-          <ul class="section-list">
+          <h2><span lang="en">Teaching and Academic Appointments</span><span lang="it">Didattica e Incarichi Accademici</span></h2>
+          <p class="tagline" lang="en">Teaching support, academic service, and course involvement.</p>
+          <p class="tagline" lang="it">Attività didattiche, servizio accademico e coinvolgimento nei corsi.</p>
+
+          <ul class="section-list" lang="en">
+            <li><strong>SIAS Group, University of Amsterdam (2026–Present):</strong> Visiting Researcher, international collaboration on computational social science and information disorder.</li>
             <li><strong>University of Salerno (2023–Present):</strong> Teaching Assistant and Academic Appointee (Cultore della Materia) for Internet Data Analysis and Distributed Programming.</li>
             <li><strong>LUISS Guido Carli University (2023–2024):</strong> Teaching Assistant and Academic Appointee (Cultore della Materia) for Intelligent Machines and Law.</li>
-            <li><strong>Program Committee:</strong> NLDB 2024 and NLDB 2025.</li>
+            <li><strong>Permanent Secondary School Teacher (Class A041 – Computer Science), Italian Ministry of Education:</strong> tenured position maintained alongside the doctoral and research path.</li>
+            <li><strong>Program Committee:</strong> NLDB 2024, NLDB 2025, and NLDB 2026.</li>
             <li><strong>Editorial and Reviewing Activities:</strong> Reviewer for <em>Information Sciences</em>, <em>Applied Intelligence</em>, <em>Expert Systems with Applications</em>, and <em>Frontiers in Artificial Intelligence</em>.</li>
+          </ul>
+          <ul class="section-list" lang="it">
+            <li><strong>Gruppo SIAS, Università di Amsterdam (2026–oggi):</strong> Visiting Researcher, collaborazione internazionale su computational social science e information disorder.</li>
+            <li><strong>Università di Salerno (2023–oggi):</strong> Docente a contratto e Cultore della Materia per Analisi dei Dati in Internet e Programmazione Distribuita.</li>
+            <li><strong>LUISS Guido Carli (2023–2024):</strong> Docente a contratto e Cultore della Materia per Intelligent Machines and Law.</li>
+            <li><strong>Docente di ruolo nella scuola secondaria (Classe A041 – Informatica), Ministero dell'Istruzione:</strong> posizione di ruolo mantenuta parallelamente al percorso dottorale e di ricerca.</li>
+            <li><strong>Program Committee:</strong> NLDB 2024, NLDB 2025 e NLDB 2026.</li>
+            <li><strong>Attività editoriali e di revisione:</strong> Revisore per <em>Information Sciences</em>, <em>Applied Intelligence</em>, <em>Expert Systems with Applications</em> e <em>Frontiers in Artificial Intelligence</em>.</li>
           </ul>
         </section>
 
         <section class="panel" id="experience">
-          <h2>Professional Experience</h2>
-          <p class="tagline">Industry and applied research experience in AI, data engineering, and machine learning.</p>
-          <ul class="section-list">
+          <h2><span lang="en">Professional Experience</span><span lang="it">Esperienza Professionale</span></h2>
+          <p class="tagline" lang="en">Industry and applied research experience in AI, data engineering, and machine learning.</p>
+          <p class="tagline" lang="it">Esperienza industriale e di ricerca applicata in AI, data engineering e machine learning.</p>
+
+          <ul class="section-list" lang="en">
+            <li><strong>2025–Present · AI Act &amp; AI Governance Consultant, ProfessionAI:</strong> designing and delivering training and consulting on EU AI Act compliance, AI risk classification, and AI governance for organizations and professionals.</li>
+            <li><strong>2024–2027 · External Trainer / Subject-Matter Expert — Digital &amp; AI Teacher Training (PNRR DM66 and regional programmes):</strong> designed and delivered field-based training modules for teaching staff at several Italian secondary schools, on digital transition, AI for teaching and assessment, generative AI, computational thinking/coding, and cybersecurity, including:
+              <ul class="section-list" style="margin-top:0.6rem;">
+                <li>IIS Montessori-Repetti, Carrara — "Il digitale per verificare e valutare gli apprendimenti" (20h, online)</li>
+                <li>IIS Manlio Rossi Doria, Marigliano (NA) — "Formazione 4.0" / AI Lab modules (two editions, 25h each)</li>
+                <li>Istituto d'Arte Paolo Nania De Luca, Avellino — "Peer education con l'intelligenza artificiale" (20h, in person)</li>
+                <li>Liceo Statale Giorgio De Chirico, Torre Annunziata — digital transition, cybersecurity and safe internet use (20h)</li>
+                <li>IIS Galileo Di Palo, Salerno — computational thinking through coding (20h, blended)</li>
+                <li>Liceo Don Carlo La Mura, Angri (SA) — AI to design and assess in secondary school (22h)</li>
+                <li>IIS G.B. Vico, Nocera Inferiore (SA) — administrative efficiency and strategic support for school leadership (20h)</li>
+                <li>Liceo Gallotta, Eboli (SA) — generative AI and teaching innovation (18h)</li>
+                <li>Convitto Nazionale Torquato Tasso, Trani di Salerno (training held in Paestum) — AI in schools (two modules, 24h)</li>
+                <li>IC Omodeo–Beethoven, Scisciano–San Vitaliano — "AI-LAB" project: AI storytelling and generative AI for multimedia teaching materials (30h)</li>
+              </ul>
+            </li>
             <li><strong>2023–2025 · Senior Data Scientist | AI Act Consultant, Eustema S.p.A.:</strong> AI Act classification and risk assessment of AI systems, trustworthy AI governance, regulatory alignment, technical documentation, and AI lifecycle governance.</li>
             <li><strong>2021 · Data Engineer, Malwarebytes:</strong> scalable EDR data architecture, Apache Spark Structured Streaming, ElasticSearch real-time processing, and AWS services including EMR, Redshift, Neptune, S3, and SQS.</li>
             <li><strong>2019–2021 · Machine Learning &amp; NLP Engineer (R&amp;D), Eustema S.p.A.:</strong> Legal-NER, legal embeddings, legal document classification, and outcome prediction using Word2Vec, Doc2Vec, and BERT.</li>
             <li><strong>2017–2019 · Machine Learning Engineer, Innovation Engineering:</strong> large-scale document classification, NLP pipelines, Solr, Spark, Docker, and microservice-based systems.</li>
           </ul>
+          <ul class="section-list" lang="it">
+            <li><strong>2025–oggi · AI Act &amp; AI Governance Consultant, ProfessionAI:</strong> progettazione ed erogazione di formazione e consulenza su conformità all'EU AI Act, classificazione del rischio AI e AI governance per aziende e professionisti.</li>
+            <li><strong>2024–2027 · Formatore Esterno / Esperto — Formazione docenti su Transizione Digitale e IA (PNRR DM66 e progetti regionali):</strong> progettazione ed erogazione di moduli di formazione sul campo per il personale docente di diversi istituti secondari italiani, su transizione digitale, IA per la didattica e la valutazione, IA generativa, pensiero computazionale/coding e cybersicurezza, tra cui:
+              <ul class="section-list" style="margin-top:0.6rem;">
+                <li>IIS Montessori-Repetti, Carrara — "Il digitale per verificare e valutare gli apprendimenti" (20h, online)</li>
+                <li>IIS Manlio Rossi Doria, Marigliano (NA) — moduli "Formazione 4.0" / Laboratorio IA (due edizioni, 25h ciascuna)</li>
+                <li>Istituto d'Arte Paolo Nania De Luca, Avellino — "Peer education con l'intelligenza artificiale" (20h, in presenza)</li>
+                <li>Liceo Statale Giorgio De Chirico, Torre Annunziata — transizione digitale, cybersicurezza e uso sicuro di Internet (20h)</li>
+                <li>IIS Galileo Di Palo, Salerno — pensiero computazionale tramite il coding (20h, blended)</li>
+                <li>Liceo Don Carlo La Mura, Angri (SA) — IA per progettare e valutare nella scuola secondaria (22h)</li>
+                <li>IIS G.B. Vico, Nocera Inferiore (SA) — efficienza amministrativa e supporto strategico per la dirigenza (20h)</li>
+                <li>Liceo Gallotta, Eboli (SA) — IA generativa e innovazione didattica (18h)</li>
+                <li>Convitto Nazionale Torquato Tasso, Trani di Salerno (formazione svolta a Paestum) — IA nella scuola (due moduli, 24h)</li>
+                <li>IC Omodeo–Beethoven, Scisciano–San Vitaliano — progetto "AI-LAB": IA e storytelling e IA generativa per materiali didattici multimediali (30h)</li>
+              </ul>
+            </li>
+            <li><strong>2023–2025 · Senior Data Scientist | AI Act Consultant, Eustema S.p.A.:</strong> classificazione AI Act e risk assessment di sistemi di intelligenza artificiale, governance della trustworthy AI, allineamento normativo, documentazione tecnica e governance del ciclo di vita dell'AI.</li>
+            <li><strong>2021 · Data Engineer, Malwarebytes:</strong> architettura dati EDR scalabile, Apache Spark Structured Streaming, elaborazione real-time con ElasticSearch e servizi AWS (EMR, Redshift, Neptune, S3, SQS).</li>
+            <li><strong>2019–2021 · Machine Learning &amp; NLP Engineer (R&amp;D), Eustema S.p.A.:</strong> Legal-NER, legal embeddings, classificazione di documenti giuridici e predizione di esiti con Word2Vec, Doc2Vec e BERT.</li>
+            <li><strong>2017–2019 · Machine Learning Engineer, Innovation Engineering:</strong> classificazione di documenti su larga scala, pipeline NLP, Solr, Spark, Docker e sistemi a microservizi.</li>
+          </ul>
         </section>
 
         <section class="panel" id="education">
-          <h2>Education</h2>
-          <p class="tagline">Academic training in Computer Science.</p>
-          <ul class="section-list">
+          <h2><span lang="en">Education</span><span lang="it">Formazione</span></h2>
+          <p class="tagline" lang="en">Academic training in Computer Science.</p>
+          <p class="tagline" lang="it">Percorso di formazione in Informatica.</p>
+
+          <ul class="section-list" lang="en">
             <li><strong>2023–Present:</strong> PhD in Computer Science, University of Salerno, Italy.</li>
             <li><strong>2014–2016:</strong> MSc in Computer Science – Data and Knowledge Management, University of Salerno, Italy.</li>
             <li><strong>2009–2013:</strong> BSc in Computer Science, University of Salerno, Italy.</li>
+          </ul>
+          <ul class="section-list" lang="it">
+            <li><strong>2023–oggi:</strong> Dottorato in Informatica, Università di Salerno.</li>
+            <li><strong>2014–2016:</strong> Laurea Magistrale in Informatica – Data and Knowledge Management, Università di Salerno.</li>
+            <li><strong>2009–2013:</strong> Laurea Triennale in Informatica, Università di Salerno.</li>
           </ul>
         </section>
       </div>
 
       <aside>
         <section class="panel side-block">
-          <h2>Profile</h2>
-          <p>
+          <h2><span lang="en">Profile</span><span lang="it">Profilo</span></h2>
+          <p lang="en">
             PhD candidate in Computer Science with academic and industry experience spanning NLP, machine learning,
-            information disorder, computational social science, and AI governance.
+            information disorder, agent-based modeling, computational social science, and AI governance.
           </p>
-          <p><a class="cv-button" href="Curriculum_Vitae_Luigi_Lomasto.pdf">Download CV</a></p>
+          <p lang="it">
+            Dottorando in Informatica con esperienza accademica e industriale in NLP, machine learning,
+            information disorder, agent-based modeling, computational social science e AI governance.
+          </p>
+          <p><a class="cv-button" href="Curriculum_Vitae_Luigi_Lomasto.pdf"><span lang="en">Download CV</span><span lang="it">Scarica il CV</span></a></p>
         </section>
 
         <section class="panel side-block">
-          <h2>Current Focus</h2>
-          <ul class="news-list">
-            <li>Social Good and Responsible Technology</li>
+          <h2><span lang="en">Current Focus</span><span lang="it">Attività Attuali</span></h2>
+          <ul class="news-list" lang="en">
+            <li>Visiting research with the SIAS group, University of Amsterdam</li>
+            <li>Preparing final PhD dissertation and defense</li>
+            <li>ASONAM 2026 conference presentation and follow-up journal extension</li>
+            <li>AI Act &amp; AI Governance consulting and training with ProfessionAI</li>
+            <li>Contributing to a PRIN 2026 grant application</li>
             <li>Information Disorder and Online Narratives</li>
-            <li>Computational Social Science</li>
-            <li>Artificial Intelligence and Governance</li>
-            <li>Simulation and Data‑Driven Modeling of Social Systems</li>
+            <li>Simulation and Data-Driven Modeling of Social Systems</li>
+          </ul>
+          <ul class="news-list" lang="it">
+            <li>Visiting research presso il gruppo SIAS, Università di Amsterdam</li>
+            <li>Preparazione della tesi di dottorato finale e della discussione</li>
+            <li>Presentazione alla conferenza ASONAM 2026 ed estensione su rivista</li>
+            <li>Consulenza e formazione su AI Act &amp; AI Governance con ProfessionAI</li>
+            <li>Partecipazione a una proposta di finanziamento PRIN 2026</li>
+            <li>Information Disorder e narrazioni online</li>
+            <li>Simulazione e modellazione data-driven dei sistemi sociali</li>
           </ul>
         </section>
-
-        <!--
-        <section class="panel side-block">
-          <h2>Technical Skills</h2>
-          <ul class="skills-list">
-            <li><strong>Programming:</strong> Python, Java, C/C++, R</li>
-            <li><strong>AI/ML:</strong> NLP, Deep Learning, Transformers, BERT, Classification</li>
-            <li><strong>Big Data:</strong> Apache Spark, Spark Streaming, ElasticSearch</li>
-            <li><strong>Cloud:</strong> AWS (EMR, Redshift, Neptune, S3, SQS)</li>
-            <li><strong>Databases:</strong> MySQL, Neo4j, NoSQL</li>
-            <li><strong>DevOps:</strong> Docker, Microservices</li>
-            <li><strong>AI Governance:</strong> EU AI Act, Risk Assessment, Trustworthy AI Frameworks</li>
-          </ul>
-        </section>
-
-
-        <section class="panel side-block">
-          <h2>Academic Links</h2>
-          <ul class="news-list">
-            <li><a href="#">Personal Website</a></li>
-            <li><a href="#">LinkedIn</a></li>
-            <li><a href="#">Google Scholar</a></li>
-            <li><a href="#">GitHub</a></li>
-          </ul>
-        </section>
-        -->
 
         <section class="panel side-block" id="contact">
-          <h2>Contact</h2>
-          <p>
+          <h2><span lang="en">Contact</span><span lang="it">Contatti</span></h2>
+          <p lang="en">
             <strong>Name:</strong> Luigi Lomasto<br>
             <strong>Email:</strong> llomasto@unisa.it<br>
             <strong>Additional email:</strong> ingluigilomasto@gmail.com<br>
-            <strong>Location:</strong> Napoli, Italy<br>
+            <strong>Location:</strong> Napoli, Italy / Amsterdam, Netherlands<br>
             <strong>Institution:</strong> University of Salerno
+          </p>
+          <p lang="it">
+            <strong>Nome:</strong> Luigi Lomasto<br>
+            <strong>Email:</strong> llomasto@unisa.it<br>
+            <strong>Email secondaria:</strong> ingluigilomasto@gmail.com<br>
+            <strong>Sede:</strong> Napoli, Italia / Amsterdam, Paesi Bassi<br>
+            <strong>Istituzione:</strong> Università di Salerno
           </p>
         </section>
       </aside>
@@ -478,9 +660,42 @@
 
   <footer>
     <div class="container">
-      <p>© 2026 Luigi Lomasto. All rights reserved.</p>
-      <p>Designed for GitHub Pages as a clean academic homepage.</p>
+      <p>© 2026 Luigi Lomasto. <span lang="en">All rights reserved.</span><span lang="it">Tutti i diritti riservati.</span></p>
+      <p lang="en">Designed for GitHub Pages as a clean academic homepage.</p>
+      <p lang="it">Progettato per GitHub Pages come homepage accademica essenziale.</p>
     </div>
   </footer>
+
+  <script>
+    (function () {
+      var STORAGE_KEY = 'lomasto-site-lang';
+      var buttons = document.querySelectorAll('[data-set-lang]');
+
+      function applyLanguage(lang) {
+        document.documentElement.setAttribute('data-lang', lang);
+        document.documentElement.setAttribute('lang', lang);
+        buttons.forEach(function (btn) {
+          btn.setAttribute('aria-pressed', btn.getAttribute('data-set-lang') === lang ? 'true' : 'false');
+        });
+        try { localStorage.setItem(STORAGE_KEY, lang); } catch (e) { /* ignore storage errors */ }
+      }
+
+      function initialLanguage() {
+        try {
+          var saved = localStorage.getItem(STORAGE_KEY);
+          if (saved === 'en' || saved === 'it') return saved;
+        } catch (e) { /* ignore storage errors */ }
+        return (navigator.language || '').toLowerCase().indexOf('it') === 0 ? 'it' : 'en';
+      }
+
+      buttons.forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          applyLanguage(btn.getAttribute('data-set-lang'));
+        });
+      });
+
+      applyLanguage(initialLanguage());
+    })();
+  </script>
 </body>
 </html>
