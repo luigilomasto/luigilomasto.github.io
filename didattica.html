@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="it">
 
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
   <title>Prof. Ing. Luigi Lomasto - Didattica</title>
-  <meta content="" name="description">
+  <meta content="Materiale didattico del Prof. Luigi Lomasto" name="description">
   <meta content="" name="keywords">
 
   <!-- Google Fonts -->
@@ -31,6 +31,7 @@
   ======================================================== -->
   <style>
     p {text-align: justify;}
+    #dispense-stato {font-style: italic; color: #6c757d;}
   </style>
 </head>
 
@@ -45,79 +46,256 @@
       <div class="container">
         <h1>Materiale didattico - Prof. Luigi Lomasto</h1><br><br>
         <div>
-          <p><img src="assets/img/crepet.jpeg" style="width: 25%; height:auto;" ></p>
+          <p><img src="assets/img/crepet.jpeg" style="width: 25%; height:auto;" alt="Paolo Crepet"></p>
           <p>
             <i>“Perché le cose belle sono difficili.<br>
             Sono fatte così le cose belle,
             sono belle e difficili. <br>
-            Per avere una cosa bella devi faticare, 
-            non te la regalano. <br> 
+            Per avere una cosa bella devi faticare,
+            non te la regalano. <br>
             Quello che ti regalano è la banalità. <br>
-            La mediocrità.<br> 
+            La mediocrità.<br>
             Quella è gratis. <br>
             La vita non è andare in un supermercato e non fare neanche la fatica di mettere i barattoli dentro il carrello.<br>
             E arrivi alla cassa e ha pagato già il nonno. <br>
             Questa non è vita. <br>
-            La vita è spingere il proprio carrello, scegliere le cose e pagare. <br> 
+            La vita è spingere il proprio carrello, scegliere le cose e pagare. <br>
             Questa è la vita. <br>
             Poi avrai un carrello enorme, meraviglioso, oppure un carrellino,
             ma è sempre dignitoso.<br>
             <strong>È il tuo.</strong> <br>
             E non è quello degli altri…”</i><br><br>
-            <strong>(Paolo Crepet)</p></strong></p>
+            <strong>(Paolo Crepet)</strong>
+          </p>
         </div>
         <br><br>
-        <div class="section-title">
-          <h2>INDIRIZZO INF</h2>
-          <h3>Materia: Informatica</h3>
-          <h4>Classe IV</h4>
-          <ul>
-            <li>
-                <a href="/dispense/INF/Informatica/IV/funzioni.pdf" download>Funzioni, passaggio di parametri e overloading</a>
-            </li>
-            <li>
-                <a href="/dispense/INF/Informatica/IV/puntatori.pdf" download>Puntatori</a>
-            </li>
-          </ul>
-          <h3>Materia: TPSIT</h3>
-          <h4>Classe III</h4>
-          <ul>
-            <li>
-              <a href="/dispense/INF/TPSIT/III/comunicazione.pdf" download>La comunicazione: Concetti Introduttivi</a>
-           </li>
-            <li>
-              <a href="/dispense/INF/TPSIT/III/segnale%20analogico%20e%20digitale.pdf" download>Segnale Analogico e Digitale</a>
-            </li>
-            <li>
-              <a href="/dispense/INF/TPSIT/III/codifica.pdf" download>Codifica delle informazioni</a>
-            </li>
-          </ul>
+
+        <!-- Qui la lista viene generata automaticamente dalla cartella "dispense" -->
+        <div id="dispense">
+          <p id="dispense-stato">Caricamento del materiale…</p>
         </div>
-        <div class="section-title">
-            <h2>INDIRIZZO AFM</h2>
-            <h3>Classe II</h3>
-            <ul>
-              <li>
-                  <a href="/dispense/AFM/II/introduzione%20reti.pdf" download>Le reti informatiche: Introduzione</a>
-            </li>
-            </ul>
-            <h3>Classe III</h3>
-            <ul>
-              <li>
-                  <a href="/dispense/AFM/III/Il%20Sistema%20Informativo%20e%20il%20Sistema%20Informatico.pdf" download>Sistema informativo e sistema informatico</a>
-              </li>
-              <li>
-                <a href="/dispense/AFM/III/I%20processi%20aziendali.pdf" download>I processi aziendali</a>
-              </li>
-              <li>
-                  <a href="/dispense/AFM/III/funzioni%20aziendali.pdf" download>Le funzioni aziendali</a>
-              </li>
-            </li>
-            </ul>
-          </div>
+
         <a href="index.html"><h3>Torna alla home</h3></a>
+      </div>
     </section>
 
+  </main>
+
+  <script>
+  /* =====================================================================
+   * ELENCO DISPENSE AUTOMATICO
+   * La pagina legge la cartella "dispense" e costruisce la lista da sola:
+   *   dispense/<INDIRIZZO>/<Materia>/<Classe>/file.pdf
+   *   dispense/<INDIRIZZO>/<Classe>/file.pdf          (senza materia)
+   * Una cartella con nome in numeri romani (I, II, III, IV, V) è una "Classe",
+   * le altre sotto l'indirizzo sono "Materie".
+   *
+   * Fonti provate in ordine:
+   *   1. elenco-dispense.php (server con PHP)
+   *   2. API GitHub (sito su GitHub Pages)
+   *   3. directory listing del server (Apache/nginx con autoindex)
+   * ===================================================================== */
+  const CONFIG = {
+    root: 'dispense',
+    phpEndpoint: 'elenco-dispense.php',
+    // Solo per GitHub Pages con dominio personalizzato: compila questi campi.
+    // Su <utente>.github.io vengono ricavati in automatico.
+    github: { owner: '', repo: '', branch: '' }
+  };
+
+  /* ---------- utilità ---------- */
+  const ROMANI = { I: 1, V: 5, X: 10, L: 50, C: 100 };
+  function romanoInNumero(s) {
+    if (!/^[IVXLC]+$/i.test(s)) return null;
+    s = s.toUpperCase();
+    let tot = 0;
+    for (let i = 0; i < s.length; i++) {
+      const v = ROMANI[s[i]], n = ROMANI[s[i + 1]] || 0;
+      tot += v < n ? -v : v;
+    }
+    return tot;
+  }
+
+  // "01 - nome", "01_nome", "1. nome" -> "nome" (il numero serve solo a ordinare)
+  function pulisciNome(nome) {
+    return nome.replace(/^\d+\s*[-_.)]\s*/, '').trim();
+  }
+
+  // "segnale_analogico e digitale.pdf" -> "Segnale analogico e digitale"
+  function titoloDaFile(nome) {
+    let t = nome.replace(/\.[^.]+$/, '');
+    t = pulisciNome(t).replace(/_/g, ' ').replace(/\s+/g, ' ').trim();
+    return t.charAt(0).toUpperCase() + t.slice(1);
+  }
+
+  function confronta(a, b) {
+    // le cartelle con prefisso numerico seguono quel numero
+    const na = a.name.match(/^(\d+)/), nb = b.name.match(/^(\d+)/);
+    if (na && nb && na[1] !== nb[1]) return Number(na[1]) - Number(nb[1]);
+    const ra = romanoInNumero(pulisciNome(a.name)), rb = romanoInNumero(pulisciNome(b.name));
+    if (ra !== null && rb !== null) return ra - rb;
+    return a.name.localeCompare(b.name, 'it', { numeric: true, sensitivity: 'base' });
+  }
+
+  function urlFile(path) {
+    return path.split('/').map(encodeURIComponent).join('/');
+  }
+
+  function daIgnorare(nome) {
+    return !nome || nome[0] === '.' || nome[0] === '_' ||
+      /^(index\.(html?|php)|thumbs\.db|desktop\.ini)$/i.test(nome);
+  }
+
+  // Costruisce l'albero a partire da una lista di percorsi "dispense/a/b/file.pdf"
+  function alberoDaPercorsi(percorsi) {
+    const radice = { name: CONFIG.root, type: 'dir', children: [] };
+    for (const p of percorsi) {
+      const parti = p.split('/').slice(1); // toglie "dispense"
+      if (parti.some(daIgnorare)) continue;
+      let nodo = radice;
+      parti.forEach((parte, i) => {
+        if (i === parti.length - 1) {
+          nodo.children.push({ name: parte, type: 'file', path: p });
+        } else {
+          let figlio = nodo.children.find(c => c.type === 'dir' && c.name === parte);
+          if (!figlio) {
+            figlio = { name: parte, type: 'dir', children: [] };
+            nodo.children.push(figlio);
+          }
+          nodo = figlio;
+        }
+      });
+    }
+    return radice;
+  }
+
+  /* ---------- fonte 1: PHP ---------- */
+  async function daPHP() {
+    const r = await fetch(CONFIG.phpEndpoint, { cache: 'no-store' });
+    if (!r.ok) throw new Error('PHP non disponibile');
+    const dati = await r.json(); // se il server non esegue PHP qui fallisce
+    if (!dati || dati.type !== 'dir') throw new Error('Risposta PHP non valida');
+    return dati;
+  }
+
+  /* ---------- fonte 2: GitHub Pages ---------- */
+  async function daGitHub() {
+    let { owner, repo, branch } = CONFIG.github;
+    if (!owner) {
+      const host = location.hostname;
+      if (!host.endsWith('.github.io')) throw new Error('Non è GitHub Pages');
+      owner = host.split('.')[0];
+      const primo = location.pathname.split('/').filter(Boolean)[0];
+      repo = (primo && !primo.includes('.')) ? primo : host;
+    }
+    const api = `https://api.github.com/repos/${owner}/${repo}`;
+    if (!branch) {
+      const r = await fetch(api);
+      if (!r.ok) throw new Error('Repository GitHub non trovato');
+      branch = (await r.json()).default_branch;
+    }
+    const r = await fetch(`${api}/git/trees/${encodeURIComponent(branch)}?recursive=1`);
+    if (!r.ok) throw new Error('Albero GitHub non disponibile');
+    const dati = await r.json();
+    const percorsi = dati.tree
+      .filter(x => x.type === 'blob' && x.path.startsWith(CONFIG.root + '/'))
+      .map(x => x.path);
+    return alberoDaPercorsi(percorsi);
+  }
+
+  /* ---------- fonte 3: directory listing del server ---------- */
+  async function daListing(rel, profondita = 0) {
+    if (profondita > 6) return [];
+    const r = await fetch(urlFile(rel) + '/', { cache: 'no-store' });
+    if (!r.ok) throw new Error('Listing non disponibile');
+    const html = await r.text();
+    const doc = new DOMParser().parseFromString(html, 'text/html');
+    const figli = [];
+    for (const a of doc.querySelectorAll('a[href]')) {
+      const href = a.getAttribute('href');
+      if (!href || href.startsWith('?') || href.startsWith('/') || href.startsWith('..') ||
+          href.includes('://') || href.startsWith('#')) continue;
+      const isDir = href.endsWith('/');
+      const nome = decodeURIComponent(href.replace(/\/$/, ''));
+      if (nome.includes('/') || daIgnorare(nome)) continue;
+      const path = rel + '/' + nome;
+      if (isDir) figli.push({ name: nome, type: 'dir', children: await daListing(path, profondita + 1) });
+      else figli.push({ name: nome, type: 'file', path });
+    }
+    if (profondita === 0 && figli.length === 0) throw new Error('Listing vuoto');
+    return figli;
+  }
+
+  /* ---------- rendering ---------- */
+  function contaFile(nodo) {
+    return nodo.type === 'file' ? 1 : nodo.children.reduce((s, c) => s + contaFile(c), 0);
+  }
+
+  function etichetta(nodo, livello) {
+    const nome = pulisciNome(nodo.name);
+    if (livello === 0) return 'INDIRIZZO ' + nome;
+    if (romanoInNumero(nome) !== null) return 'Classe ' + nome.toUpperCase();
+    return 'Materia: ' + nome;
+  }
+
+  function renderNodo(nodo, livello, contenitore) {
+    const h = document.createElement('h' + Math.min(livello + 2, 6));
+    h.textContent = etichetta(nodo, livello);
+    contenitore.appendChild(h);
+
+    const figli = nodo.children.slice().sort(confronta);
+    const file = figli.filter(c => c.type === 'file');
+    const cartelle = figli.filter(c => c.type === 'dir' && contaFile(c) > 0);
+
+    if (file.length) {
+      const ul = document.createElement('ul');
+      for (const f of file) {
+        const li = document.createElement('li');
+        const a = document.createElement('a');
+        a.href = urlFile(f.path);
+        a.setAttribute('download', '');
+        a.textContent = titoloDaFile(f.name);
+        li.appendChild(a);
+        ul.appendChild(li);
+      }
+      contenitore.appendChild(ul);
+    }
+    for (const c of cartelle) renderNodo(c, livello + 1, contenitore);
+  }
+
+  function render(albero) {
+    const box = document.getElementById('dispense');
+    box.innerHTML = '';
+    const indirizzi = albero.children
+      .filter(c => c.type === 'dir' && contaFile(c) > 0)
+      .sort(confronta);
+    if (!indirizzi.length) {
+      box.innerHTML = '<p id="dispense-stato">Nessun materiale disponibile al momento.</p>';
+      return;
+    }
+    for (const ind of indirizzi) {
+      const div = document.createElement('div');
+      div.className = 'section-title';
+      renderNodo(ind, 0, div);
+      box.appendChild(div);
+    }
+  }
+
+  /* ---------- avvio ---------- */
+  (async function () {
+    const fonti = [
+      daPHP,
+      daGitHub,
+      async () => ({ name: CONFIG.root, type: 'dir', children: await daListing(CONFIG.root) })
+    ];
+    for (const fonte of fonti) {
+      try { render(await fonte()); return; }
+      catch (e) { console.info('[dispense]', e.message); }
+    }
+    document.getElementById('dispense').innerHTML =
+      '<p id="dispense-stato">Impossibile caricare l\'elenco del materiale. Riprova più tardi.</p>';
+  })();
+  </script>
 
   <!-- Vendor JS Files -->
   <script src="assets/vendor/purecounter/purecounter.js"></script>
